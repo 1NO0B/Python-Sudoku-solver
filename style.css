@@ -1,0 +1,16 @@
+QMainWindow{
+    background-color: black;
+}
+
+
+QPushButton{
+    background-color: black;
+    color: white;
+    padding: 5%;
+
+
+    border-width: 1%;
+    border-color: white;
+    border-style: solid;
+    border-radius: 7%;
+}
