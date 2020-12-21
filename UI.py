@@ -28,30 +28,31 @@ class basicWindow(QWidget):
                 time += 1  
                 #sets column to one more if needed
                 column = time % 9
-                button.append(QtWidgets.QPushButton(str(j)))
+                button.append(QtWidgets.QLineEdit())
                 #sets row to one more if needed
                 if time % 9 == 0:
                     row = row+1
 
-
+                #addes the button[n] on the right position
                 layout.addWidget(button[time], row, column)
-        button[8].clicked.connect(self.clicked)
 
         #creates "solve" button
         solve = QtWidgets.QPushButton("Solve!")
         solve.setStyleSheet("background-color: darkblue;")
         layout.addWidget(solve, 10, 8)
-        
-        #creates field which content is coppied to the button  (and so to the board[])
-       
+
+        #creates an obejct of the solutionWindow and sets the solve button "clicked-funtion" to open the solutionWindow
+        self.solutionWindow = solutionWindow()
+        solve.clicked.connect(self.solutionWindow.setupUI)
+
+
+
 
         #sets window Title
         self.setWindowTitle('Sudoku Solver')
 
         self.show()
     
-    def clicked(self):
-        print("a")
     
 class solutionWindow(QWidget):
 
@@ -62,7 +63,7 @@ class solutionWindow(QWidget):
 
         #sets window sizes
         self.setMinimumSize(350,250)
-        self.setGeometry(0, 0, 600, 600)
+        self.setGeometry(700, 30, 600, 600)
 
         #sets the layout
         self.setLayout(layout)
@@ -72,24 +73,31 @@ class solutionWindow(QWidget):
         row = 0
         column = 0
         time = -1
+        button = []
         #creates the 81 buttons
         for i in board:
             for j in i: 
                 time += 1  
-                #sets column to % of 3
+                #sets column to one more if needed
                 column = time % 9
-                button = QtWidgets.QPushButton(str(j))
-                #checks if i is 3*n and if it is it adds 1 to row
+                button.append(QtWidgets.QPushButton(str(j)))
+                #sets row to one more if needed
                 if time % 9 == 0:
                     row = row+1
-                layout.addWidget(button, row, column)
+
+                #addes the button[n] on the right position
+                layout.addWidget(button[time], row, column)
+
+        
+
+
+
 
 
         #sets window Title
         self.setWindowTitle('Sudoku Solver')
 
         self.show()
-
 
 
 #creates the window and calls basicWindow
