@@ -21,30 +21,38 @@ class basicWindow(QWidget):
         row = 0
         column = 0
         time = -1
+        button = []
         #creates the 81 buttons
         for i in board:
             for j in i: 
                 time += 1  
-                #sets column to % of 3
+                #sets column to one more if needed
                 column = time % 9
-                button = QtWidgets.QPushButton(str(j))
-                #checks if i is 3*n and if it is it adds 1 to row
+                button.append(QtWidgets.QPushButton(str(j)))
+                #sets row to one more if needed
                 if time % 9 == 0:
                     row = row+1
-                layout.addWidget(button, row, column)
-    
+
+
+                layout.addWidget(button[time], row, column)
+        button[8].clicked.connect(self.clicked)
+
         #creates "solve" button
         solve = QtWidgets.QPushButton("Solve!")
         solve.setStyleSheet("background-color: darkblue;")
         layout.addWidget(solve, 10, 8)
-       
+        
+        #creates field which content is coppied to the button  (and so to the board[])
        
 
         #sets window Title
         self.setWindowTitle('Sudoku Solver')
 
         self.show()
-
+    
+    def clicked(self):
+        print("a")
+    
 class solutionWindow(QWidget):
 
     def setupUI(self):
@@ -89,7 +97,7 @@ class MainWindow(QWidget):
     def __init__(self):
 
         super(MainWindow, self).__init__()
-        self.solutionWindow = solutionWindow()
+        
         self.basicWindow = basicWindow()
         
         self.startBasicWindow()
@@ -100,7 +108,10 @@ class MainWindow(QWidget):
         self.basicWindow.setupUI()
 
     def startSolutionWindow(self):
+        self.solutionWindow = solutionWindow()
         self.solutionWindow.setupUI()
+
+    
 
 
 board = solve.getBoard()
