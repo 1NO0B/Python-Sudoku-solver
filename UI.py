@@ -7,29 +7,38 @@ class basicWindow(QWidget):
     def setupUI(self):
 
         #creates GridLayout
-        layout = QVBoxLayout()
+        layout = QGridLayout()
 
         #sets window sizes
         self.setMinimumSize(350,250)
-        self.setGeometry(0, 0, 1000, 600)
+        self.setGeometry(0, 0, 600, 600)
 
         #sets the layout
         self.setLayout(layout)
 
 
         #creates content
-        labelOpen = QtWidgets.QLabel('Open')
-        labelInProgress = QtWidgets.QLabel('In Progress')
-        labelOpen.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignHCenter)
-        labelInProgress.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignHCenter)
-        button = QtWidgets.QPushButton('Taks')
-        #addes content
-        layout.addWidget(labelOpen)
-        layout.addWidget(labelInProgress)
-        layout.addWidget(button)
+        row = 0
+        column = 0
+        time = -1
+        #creates the 81 buttons
+        for i in board:
+            for j in i: 
+                time += 1  
+                #sets column to % of 3
+                column = time % 9
+                button = QtWidgets.QPushButton("0")
+                #checks if i is 3*n and if it is it adds 1 to row
+                if time % 9 == 0:
+                    row = row+1
+                layout.addWidget(button, row, column)
+                
+              
+       
+       
 
         #sets window Title
-        self.setWindowTitle('Taskanizer')
+        self.setWindowTitle('Sudoku Solver')
 
         self.show()
 
@@ -51,7 +60,7 @@ class MainWindow(QWidget):
 
 
 
-print(solve.getBoard())
+board = solve.getBoard()
 app = QApplication(sys.argv)
 windowExample = MainWindow()
 app.setStyleSheet(open('style.css').read()) #sets the styleSheet for the app
