@@ -27,7 +27,7 @@ class basicWindow(QWidget):
                 time += 1  
                 #sets column to % of 3
                 column = time % 9
-                button = QtWidgets.QPushButton("0")
+                button = QtWidgets.QPushButton(str(j))
                 #checks if i is 3*n and if it is it adds 1 to row
                 if time % 9 == 0:
                     row = row+1
