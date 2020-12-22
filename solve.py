@@ -81,6 +81,8 @@ def start(passedBoard):
             # addes the button[n] on the right position
             board[row-1][column] = int(j)
 
+    
+    
     solve(board)
 
 board = [

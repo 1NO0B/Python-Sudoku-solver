@@ -8,8 +8,8 @@ QPushButton{
     border-color: black;
     border-style: solid;
     font-size: 15px;
+    
 }
-
 
 QLineEdit{
     padding-top: 20%;
