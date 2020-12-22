@@ -1,13 +1,14 @@
 import sys
-import solve
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import (QWidget, QGridLayout, QPushButton, QApplication, QVBoxLayout)
+import solve
+#todo implement displaying impossible sudoku
 
+Solver = solve
 
-#sudoku board, 0 = empty field, you need to enter the board you want to get solved here...
 board = [
-        [1, 0, 0, 0, 0, 0, 0, 0, 9],
-        [1, 0, 0, 0, 0, 0, 8, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 8, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -53,14 +54,14 @@ class basicWindow(QWidget):
                 #addes the button[n] on the right position
                 layout.addWidget(button[time], row, column)
 
-        #creates "solve" button
-        solve = QtWidgets.QPushButton("Solve!")
-        solve.setStyleSheet("background-color: darkblue;")
-        layout.addWidget(solve, 10, 8)
+        #creates "solver" button
+        solver = QtWidgets.QPushButton("Solve!")
+        solver.setStyleSheet("background-color: darkblue;")
+        layout.addWidget(solver, 10, 8)
 
         #creates an obejct of the solutionWindow and sets the solve button "clicked-funtion" to open the solutionWindow
         self.solutionWindow = solutionWindow()
-        solve.clicked.connect(self.click)
+        solver.clicked.connect(self.click)
 
 
 
@@ -73,7 +74,7 @@ class basicWindow(QWidget):
     #called when solution button is clicked
     def click(self):
 
-        #calls solve.py and gives the board
+
         row = 0
         column = 0
         time = -1
@@ -89,7 +90,9 @@ class basicWindow(QWidget):
             else:
                 board[row-1][column] = button[time].text()
 
-        
+        # calls solve(.py).start and gives the board
+        Solver.start(board)
+
         #opens the solutionWindow which shows the solution
         self.solutionWindow.setupUI()
         
@@ -116,7 +119,7 @@ class solutionWindow(QWidget):
         time = -1
         button = []
         #creates the 81 buttons
-        for i in board:
+        for i in Solver.board:
             for j in i: 
                 time += 1  
                 #sets column to one more if needed
@@ -155,9 +158,7 @@ class MainWindow(QWidget):
     def startBasicWindow(self):
         self.basicWindow.setupUI()
 
-    def startSolutionWindow(self):
-        self.solutionWindow = solutionWindow()
-        self.solutionWindow.setupUI()
+
 
     
 
