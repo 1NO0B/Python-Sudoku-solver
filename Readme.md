@@ -9,8 +9,13 @@
 #### for reuse: 
 restart the program
 
+
+
+
+
+
 ```diff
-   + Todo: Showing if a Sudoku is impossible
++ Todo: Showing if a Sudoku is impossible
 ```
 
 
