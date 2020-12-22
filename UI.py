@@ -46,7 +46,10 @@ class basicWindow(QWidget):
                 time += 1  
                 #sets column to one more if needed
                 column = time % 9
-                button.append(QtWidgets.QLineEdit())
+
+                btn = QtWidgets.QLineEdit()
+                btn.setAlignment(QtCore.Qt.AlignCenter)
+                button.append(btn)
                 #sets row to one more if needed
                 if time % 9 == 0:
                     row = row+1
@@ -56,7 +59,10 @@ class basicWindow(QWidget):
 
         #creates "solver" button
         solver = QtWidgets.QPushButton("Solve!")
-        solver.setStyleSheet("background-color: darkblue;")
+        solver.setStyleSheet("background-color: darkblue;"
+                            "color: white;"
+                            "border-radius: 7%;"
+                            "font-size: 13px;")
         layout.addWidget(solver, 10, 8)
 
         #creates an obejct of the solutionWindow and sets the solve button "clicked-funtion" to open the solutionWindow

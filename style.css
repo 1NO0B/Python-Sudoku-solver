@@ -1,17 +1,17 @@
-QMainWindow{
-    background-color: black;
+QPushButton{
+    background-color: white;
+    padding: 5%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+
+    border-width: 1%;
+    border-color: black;
+    border-style: solid;
+    font-size: 15px;
 }
 
 
-QPushButton{
-    background-color: black;
-    color: white;
-    padding: 5%;
-
-
-    border-width: 1%;
-    border-color: white;
-    border-style: solid;
-    border-radius: 7%;
-    
+QLineEdit{
+    padding-top: 20%;
+    padding-bottom: 20%;
 }
