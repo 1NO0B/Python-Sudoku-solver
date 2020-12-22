@@ -10,7 +10,7 @@
 restart the program
 
 ```diff
-#### Todo: Showing if a Sudoku is impossible
++ #### Todo: Showing if a Sudoku is impossible
 - text in red
 + text in green
 ! text in orange
