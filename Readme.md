@@ -10,6 +10,9 @@
 restart the program  
 <br>
 <br>
+##!Program crashes if a Sudoku is unsolvable!
+<br>
+<br>
 <br>
 <br>
 <br>
