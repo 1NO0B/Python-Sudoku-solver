@@ -9,10 +9,10 @@
 #### for reuse: 
 restart the program
 
-```html
-   //<h3>Todo<\h3>
+```diff
+   + Todo: Showing if a Sudoku is impossible
 ```
-+Todo: Showing if a Sudoku is impossible
+
 
 
 
