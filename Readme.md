@@ -22,8 +22,6 @@ Das GUI.py ist dazu da um das GUI zu erstellen, das eingegebene Bord wird als Li
 <br>
 <br>
 <br>
-<br>
-<br>
 ```diff
 + Todo: Showing if a Sudoku is impossible
 ```
