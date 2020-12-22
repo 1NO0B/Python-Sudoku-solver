@@ -8,11 +8,11 @@
 
 #### for reuse: 
 restart the program  
-  
-  
-  
-  
-  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   
 ```diff
 + Todo: Showing if a Sudoku is impossible
