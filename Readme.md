@@ -10,7 +10,7 @@
 restart the program
 
 ```html
-   <h3>Todo<\h3>
+   //<h3>Todo<\h3>
 ```
 +Todo: Showing if a Sudoku is impossible
 
