@@ -10,7 +10,7 @@
 restart the program
 
 
-### Todo: Showing if a Sudoku is impossible
+#### + Todo: Showing if a Sudoku is impossible
 
 
 
